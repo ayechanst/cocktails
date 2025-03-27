@@ -15,7 +15,27 @@
     />
   </head>
   <body>
-    <h2>Cocktail Search</h2>
-    <div>sup</div>
+    <header>
+      <h2>Cocktail Search</h2>
+    </header>
+    <div class="main">
+      {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
+      <button onClick="fetchCocktails('{{letter}}')">
+        {{letter}}
+      </button>
+      {% endfor %}
+    </div>
+    <div>Results:</div>
+    <pre id="results">PRE?</pre>
+    <script>
+      async function fetchCocktails(letter) {
+        const response = await fetch(
+          `/api/cocktails/letter/?letter=${letter}`
+        );
+        const data = await response.json();
+        document.getElementById("results").textContent =
+          JSON.stringify(data, null, 2);
+      }
+    </script>
   </body>
 </html>
