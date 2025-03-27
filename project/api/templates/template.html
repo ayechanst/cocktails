@@ -17,14 +17,15 @@
     <header>
       <h2>Cocktail Search</h2>
     </header>
-    <div class="main">
+    <div>Search by letter:</div>
+    <div class="letter">
       {% for letter in "ABCDEFGHIJKLMNOPQRSTUVWXYZ" %}
       <button onClick="fetchCocktails('{{letter}}')">
         {{letter}}
       </button>
       {% endfor %}
     </div>
-    <pre id="results">Cocktails will appear here</pre>
+    <pre id="results">---</pre>
     <script>
       async function fetchCocktails(letter) {
         const response = await fetch(
@@ -33,6 +34,30 @@
         const data = await response.json();
         document.getElementById("results").textContent =
           JSON.stringify(data, null, 2);
+      }
+    </script>
+    <div>Seach by ingredient:</div>
+    <div class="ingredient">
+      {% for ingredient in ingredients %}
+      <button
+        onClick="fetchCocktailsByIngredients('{{ingredient}}')"
+      >
+        {{ingredient}}
+      </button>
+      {% endfor %}
+    </div>
+    <pre id="ingredient-results">---</pre>
+    <script>
+      async function fetchCocktailsByIngredients(
+        ingredient
+      ) {
+        const response = await fetch(
+          `/api/cocktails/ingredient/?ingredient=${ingredient}`
+        );
+        const data = await response.json();
+        document.getElementById(
+          "ingredient-results"
+        ).textContent = JSON.stringify(data, null, 2);
       }
     </script>
   </body>

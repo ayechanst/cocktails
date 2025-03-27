@@ -6,7 +6,8 @@ def home(request):
     return HttpResponse("Welcome to the Home Page")
 
 def cocktail_page(request):
-    return render(request, 'template.html')
+    ingredients = get_all_ingredients()
+    return render(request, 'template.html', {'ingredients': ingredients})
 
 # request is a HttpsRequest object
 def cocktail_view(request):

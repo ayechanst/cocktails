@@ -62,17 +62,6 @@ def get_cocktail_by_ingredient(ingredient):
                                 },
                                 'instructions': drink.get('strInstructions'),
                             }
-                            # trimmed_data = [
-                            #     {
-                            #         'name': drink.get('strDrink'),
-                            #         'glass': drink.get('strGlass'),
-                            #         **{f'ingredient{i}': drink.get(f'strIngredient{i}')
-                            #             for i in range(1, 9) if drink.get(f'strIngredient{i}')
-                            #         },
-                            #         'instructions': drink.get('strInstructions'),
-                            #     }
-                            #     for drink in drink_group if drink
-                            # ]
                             cocktail_array.append(trimmed_data)
                             break
     return cocktail_array
