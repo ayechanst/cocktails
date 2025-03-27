@@ -1,0 +1,9 @@
+body {
+    background-color: bisque;
+    display: flex;
+    justify-content: center;
+}
+
+h2 {
+    background-color: bisque;
+}
