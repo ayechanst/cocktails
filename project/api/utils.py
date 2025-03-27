@@ -9,9 +9,7 @@ def get_cocktail_by_name(name):
     return []
 
 def get_cocktail_by_letter(letter):
-    # url = f"https:/www.thecocktaildb.com/api/json/v1/1/search.php?f={letter}"
     url = f"https://www.thecocktaildb.com/api/json/v1/1/search.php?f={letter}"
-
     response = requests.get(url)
     if response.status_code == 200:
         data = response.json()

@@ -2,15 +2,15 @@ from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
 from .utils import get_cocktail_by_letter, get_cocktail_by_name
 
-# Create your views here.
 def home(request):
     return HttpResponse("Welcome to the Home Page")
 
 def cocktail_page(request):
     return render(request, 'template.html')
 
+# request is a HttpsRequest object
 def cocktail_view(request):
-    cocktail_name = request.GET.get('name', 'margarita')
+    cocktail_name = request.GET.get('name', 'margarita') # .get(key, default value) from 
     data = get_cocktail_by_name(cocktail_name)
     return JsonResponse(data, safe=False)
 
