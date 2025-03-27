@@ -20,7 +20,7 @@ from api import views
 
 
 urlpatterns = [
-    # path('', views.home, name='home'),
+    path('', views.home, name='home'),
     path('api/', include('api.urls')),
     path('admin/', admin.site.urls)  
 ]
