@@ -27,20 +27,6 @@ def get_cocktail_by_letter(letter):
         return trimmed_data
     return []
 
-def get_all_ingredients():
-    ingredient_array = []
-    for letter in "abcdefghijklmnopqrstuvwxyz":
-        url = f"https://www.thecocktaildb.com/api/json/v1/1/search.php?f={letter}"
-        response = requests.get(url)
-        if response.status_code == 200:
-            data = response.json().get('drinks', [])
-            if data:
-                for drink in data:
-                    for i in range(1, 9):
-                        ingredient = drink.get(f'strIngredient{i}')
-                        if ingredient:
-                            ingredient_array.append(ingredient)
-    return list(set(ingredient_array))
 
 def get_cocktail_by_ingredient(ingredient):
     cocktail_array = []
@@ -66,6 +52,22 @@ def get_cocktail_by_ingredient(ingredient):
                             break
     return cocktail_array
 
+def get_all_ingredients():
+    ingredient_set = set() 
+    for letter in "abcdefghijklmnopqrstuvwxyz":
+        url = f"https://www.thecocktaildb.com/api/json/v1/1/search.php?f={letter}"
+        response = requests.get(url)
+        # response = await fetch_data(url)
+        if response.status_code == 200:
+            data = response.json().get('drinks', [])
+            # data = response.get('drinks', [])
+            if data:
+                for drink in data:
+                    for i in range(1, 9):
+                        ingredient = drink.get(f'strIngredient{i}')
+                        if ingredient:
+                            ingredient_set.add(ingredient)
+    return sorted(ingredient_set)
 
 
 
