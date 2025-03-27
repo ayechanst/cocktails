@@ -8,6 +8,8 @@ urlpatterns = [
     path('cocktails/', views.cocktail_page, name='cocktail page'),
     # path('cocktails/', views.cocktail_view, name='single cocktail view'),
     path('cocktails/letter/', views.cocktail_letter_view, name='cocktail letter view'),
-    path('cocktails/ingredients/', views.cocktail_ingredients, name = "cocktail ingredients")
+    path('cocktails/ingredients/', views.cocktail_ingredients, name = "cocktail ingredients"),
+    path('cocktails/ingredient/', views.cocktail_by_ingredient, name = "cocktail by ingredients"),
+
     # path('path that triggers the view', view function that is called if url matches)
 ]

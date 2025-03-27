@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from .utils import get_all_ingredients, get_cocktail_by_letter, get_cocktail_by_name
+from .utils import get_all_ingredients, get_cocktail_by_ingredient, get_cocktail_by_letter, get_cocktail_by_name
 
 def home(request):
     return HttpResponse("Welcome to the Home Page")
@@ -21,6 +21,11 @@ def cocktail_letter_view(request):
 
 def cocktail_ingredients(request):
     data = get_all_ingredients()
+    return JsonResponse(data, safe=False)
+
+def cocktail_by_ingredient(request):
+    ingredient = request.GET.get('ingredient', 'Lemon')
+    data = get_cocktail_by_ingredient(ingredient)
     return JsonResponse(data, safe=False)
 
 
