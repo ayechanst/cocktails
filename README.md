@@ -9,3 +9,9 @@ Deactivate:
 ```bash
 deactivate
 ```
+
+To run the server:
+
+```bash
+python manage.py runserver
+```
