@@ -27,6 +27,14 @@ def get_cocktail_by_letter(letter):
         return trimmed_data
     return []
 
+# def get_cocktail_by_ingredient(ingredient):
+#     url = f"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i={ingredient}"
+#     response = requests.get(url)
+#     if response.status_code == 200:
+#         return response.json()
+
+    # cocktail_array = []
+
 
 def get_cocktail_by_ingredient(ingredient):
     cocktail_array = []
