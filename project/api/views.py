@@ -1,6 +1,6 @@
 from django.shortcuts import render
 from django.http import JsonResponse, HttpResponse
-from .utils import get_all_ingredients, get_cocktail_by_ingredient, get_cocktail_by_letter, get_cocktail_by_name
+from .utils import get_all_ingredients, get_cocktail_by_ingredient, get_cocktail_by_letter
 
 # request is a HttpsRequest object
 

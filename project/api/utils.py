@@ -27,6 +27,8 @@ def get_cocktail_by_letter(letter):
         return trimmed_data
     return []
 
+# Add for faster ingredient search
+
 # def get_cocktail_by_ingredient(ingredient):
 #     url = f"https://www.thecocktaildb.com/api/json/v1/1/filter.php?i={ingredient}"
 #     response = requests.get(url)
